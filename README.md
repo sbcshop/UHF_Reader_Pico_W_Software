@@ -1,37 +1,17 @@
 # UHF_Reader_Pico_W_Software
 <img src="https://cdn.shopify.com/s/files/1/1217/2104/files/readpi_1BANNER.jpg?v=1689673444">
 
-ReadPi 125 KHz frequency based RFID Reader powered by Raspberry Pi Pico W unit. 
-This github provides getting started guide and other working details for ReadPi RFID version.
+This github provides getting started guide and other working details for UHF reader for Pico W
 
 ### Features:
-- Powered by Raspberry Pi Pico W microcontroller  board 
-- Onboard 125KHz RFID reader Module
-- 1.3” Display for visual interaction
-- TF card slot for storage and data transfer
-- Drag- and- drop programming using mass storage over USB
-- Multifunction GPIO breakout supporting general I/O, UART, I2C, SPI, ADC & PWM function.
-- Multi- tune Buzzer to add audio alert into project
-- Onboard 5-Way Joystick allows better control- related projects
-- Status LED for board power, charging and Tag Scan indication 
-- Battery supply and charging support for portable operation
-- Multi- platform support like MicroPython, CircuitPython and Arduino IDE.
-- Comes with HID support, so device can simulate a mouse or keyboard 
+- Powered by Raspberry Pi Pico W microcontroller board 
+
 
 ### Specifications:
 - RP2040 microcontroller is dual-core Arm Cortex-M0+ processor, 2MB of onboard flash storage, 264kB of RAM
-- On-board single-band 2.4GHz wireless interfaces (802.11n) for WiFi and Bluetooth® 5 (LE)
-- WPA3 & Soft access point supporting up to four clients
-- Operating voltage of pins 3.3V and board supply 5V
-- 240x240 resolution, IPS display, and 65k RGB colors
-- ST7789 display driver
-- Operating Frequency : 125KHz
-- Communication: 9600bps
-- Reading distance range: 5-10 cm, depending on TAG
-- Current Rating : < 50mA
-- Integrated Antenna
+-
 
-## Getting Started with ReadPi-RFID
+## Getting Started with UHF Reader for Pico W
 ### Hardware Overview
 #### Pinout
 <img src="https://github.com/sbcshop/ReadPi_RFID_Software/blob/main/images/ReadPi_RFID%20pinout.jpg">
@@ -49,7 +29,7 @@ This github provides getting started guide and other working details for ReadPi 
 <img src="https://github.com/sbcshop/ReadPi_RFID_Software/blob/main/images/READPI%20GPIO%20PINS%20breakout.jpg">
 
 ### Interfacing Details
-- Pico W and RFID module interfacing
+- Pico W and UHF module interfacing
   
   | Pico W | RFID Module Pin | Function |
   |---|---|---|
@@ -61,11 +41,12 @@ This github provides getting started guide and other working details for ReadPi 
   
   | Pico W | Display Pin | Function |
   |---|---|---|
-  |GP10 | SCLK | Clock pin of SPI interface for display|
-  |GP11 | DIN  | MOSI (Master OUT Slave IN) data pin of SPI interface|
-  |GP8 | DC | Data/Command pin of SPI interface|
-  |GP9 | CS   | Chip Select pin of SPI interface for display|
-  |GP12 | Reset | Display Reset Pin |
+  |GP6 | SCLK | Clock pin of SPI interface for display|
+  |GP7 | DIN  | MOSI (Master OUT Slave IN) data pin of SPI interface|
+  |GP11 | DC | Data/Command pin of SPI interface|
+  |GP13 | CS   | Chip Select pin of SPI interface for display|
+  |GP14 | Reset | Display Reset Pin |
+  |GP12 | BL | Backlight of Display |
   
 - Pico W and micro SD card interfacing
 
@@ -76,15 +57,13 @@ This github provides getting started guide and other working details for ReadPi 
   |GP16 | DOUT | MISO (Master IN Slave OUT) data pin of SPI interface|
   |GP17 | CS   | Chip Select pin of SPI interface for SDcard|
 
-- Joystick, Buzzer and LED Interfacing with Pico W
+- Buttons, Buzzer and LED Interfacing with Pico W
   | Pico W | Buttons | Function |
   |---|---|---|
-  |GP14 | JY_R |Programmable Joystick button|
-  |GP21 | JY_L |Programmable Joystick button|
-  |GP22 | JY_U |Programmable Joystick button|
-  |GP26 | JY_D |Programmable Joystick button|
-  |GP27 | JY_Sel |Programmable Joystick button|
-  |GP15 | Buzzer | Buzzer positive |
+  |GP10 | BT2 | programmable button |
+  |GP9 | BT3 | programmable button |
+  |GP8 | BT4 | programmable button |
+  |GP22 | Buzzer | Buzzer positive |
   |GP25 | LED | OnBoard LED pin of Pico W  |
  
 - Breakout GPIOs
@@ -94,9 +73,10 @@ This github provides getting started guide and other working details for ReadPi 
   |GP1 | 2 | General IO / SPI0 CSn / I2C0 SCL / UART0 RX |
   |GP2 | 4 | General IO / SPI0 SCK / I2C1 SDA |
   |GP3 | 5 | General IO / SPI0 TX / I2C1 SCL |
-  |GP6 | 9 | General IO / SPI0 SCK / I2C1 SDA |
-  |GP7 | 10 | General IO / SPI0 TX / I2C1 SCL |
+  |GP21 | 9 | General IO / I2C0 SCL |
+  |GP20 | 10 | General IO / I2C0 SDA |
   |GP28| 34 | General IO / ADC2 / SPI1 RX |
+  |GP15| 34 | General IO / SPI1 TX / I2C1 SCL|
 
 
 ### 1. Step to install boot Firmware
@@ -105,7 +85,7 @@ This github provides getting started guide and other working details for ReadPi 
    <img src="https://github.com/sbcshop/ArdiPi_Software/blob/main/images/pico_bootmode.gif">
    
    - It will mount as a Mass Storage Device called RPI-RP2.
-   - Drag and drop the MicroPython UF2 - [ReadPi_firmware](https://github.com/sbcshop/ReadPi_RFID_Software/blob/main/ReadPi_Firmware.uf2) file provided in this github onto the RPI-RP2 volume. Your Pico will reboot. You are now running MicroPython on ArdiPi.
+   - Drag and drop the MicroPython UF2 - [firmware](https://github.com/sbcshop/ReadPi_RFID_Software/blob/main/Firmware.uf2) file provided in this github onto the RPI-RP2 volume. Your Pico will reboot. You are now running MicroPython on ArdiPi.
 
 ### 2. Onboard LED Blink 
    - Download **Thonny IDE** from [Download link](https://thonny.org/) as per your OS and install it.
