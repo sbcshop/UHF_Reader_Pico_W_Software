@@ -13,6 +13,6 @@ def bequiet():	# Function to stop buzzer
 
 while True:
     playtone(1865)
-    time.sleep(0.5)
+    time.sleep(0.5) # wait for some time
     bequiet()
     time.sleep(0.5)
