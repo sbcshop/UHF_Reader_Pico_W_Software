@@ -79,7 +79,7 @@ This github provides getting started guide and other working details for UHF rea
    <img src="https://github.com/sbcshop/ArdiPi_Software/blob/main/images/pico_bootmode.gif">
    
    - It will mount as a Mass Storage Device called RPI-RP2.
-   - Drag and drop the MicroPython UF2 - [firmware](https://github.com/sbcshop/ReadPi_RFID_Software/blob/main/Firmware.uf2) file provided in this github onto the RPI-RP2 volume. Your Pico will reboot. You are now running MicroPython on ArdiPi.
+   - Drag and drop the MicroPython UF2 - [firmware](https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/uhfreader_picow_firmware.uf2) file provided in this github onto the RPI-RP2 volume. Your Pico will reboot. You are now running MicroPython on Pico W of UHF Reader.
 
 ### 2. Onboard LED Blink 
    - Download **Thonny IDE** from [Download link](https://thonny.org/) as per your OS and install it.
@@ -89,13 +89,13 @@ This github provides getting started guide and other working details for UHF rea
       <img src= "https://github.com/sbcshop/EnkPi_2.9_Software/blob/main/images/img1.jpg" />
       <img src= "https://github.com/sbcshop/EnkPi_2.9_Software/blob/main/images/img2.jpg" />
       
-   - Write simple onboard blink Python code or [Download Led blink code](https://github.com/sbcshop/ReadPi_RFID_Software/blob/main/examples/onboard_ledBlink.py), then click on the green run button to make your script run on ReadPi.
+   - Write simple onboard blink Python code or [Download Led blink code](https://github.com/sbcshop/ReadPi_RFID_Software/blob/main/examples/onboard_ledBlink.py), then click on the green run button to make your script run on board.
      
       <img src= "https://github.com/sbcshop/EnkPi_2.9_Software/blob/main/images/img3.jpg" />
      
-     Now that we've reached this point, you're executing your script through Thonny IDE, so if you unplug Pico, it will stop running. To run your script without using an IDE, simply power up ArdiPi and it should run your script, go to step 3. Once you have transferred your code to the ArdiPi board, to see your script running, just plug in power either way using micro USB or via Vin, both will work.
+     Now that we've reached this point, you're executing your script through Thonny IDE, so if you unplug Pico, it will stop running. To run your script without using an IDE, simply power up ArdiPi and it should run your script, go to step 3. Once you have transferred your code to the board, to see your script running, just plug in power either way using micro USB or via Vin, both will work.
 
-### 3. How to move your script on Pico W of ReadPi
+### 3. How to move your script on Pico W of Board
    - Click on File -> Save Copy -> select Raspberry Pi Pico , Then save file as main.py
      
       <img src="https://github.com/sbcshop/3.2_Touchsy_Pico_W_Resistive_Software/blob/main/images/transfer_script_pico.gif" />
@@ -114,7 +114,7 @@ This github provides getting started guide and other working details for UHF rea
    In [example](https://github.com/sbcshop/UHF_Reader_Pico_W_Software/tree/main/examples) folder you will find demo example script code to test onboard components of ReadPi like 
    - [Buzzer test](https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/examples/BuzzerDemo.py) : code to test onboard Buzzer
    - [SD card demo]() : code to test onboard micro SD card interfacing, [sdcard.py]() lib file is required for the code to run successfully.
-   - [RFID module demo]() : testing onboard RFID module , buzzer and display unit of shield. 
+   - [UHF_Module Demo]() : testing onboard RFID module , buzzer and display unit of shield. 
    
    Using this sample code as a guide, you can modify, build, and share codes!!  
    
