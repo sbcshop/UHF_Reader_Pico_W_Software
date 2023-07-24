@@ -17,13 +17,7 @@ This github provides getting started guide and other working details for UHF rea
 <img src="https://github.com/sbcshop/ReadPi_RFID_Software/blob/main/images/ReadPi_RFID%20pinout.jpg">
 
 - (1) 1.3” Display
-- (2) RFID Module
-- (3) Joystick 
-- (4) GPIOs breakout 
-- (5) Battery Connector
-- (6) TF card slot
-- (7) Buzzer
-- (8) Pico W
+
 
 #### GPIO Pins Detail
 <img src="https://github.com/sbcshop/ReadPi_RFID_Software/blob/main/images/READPI%20GPIO%20PINS%20breakout.jpg">
@@ -31,12 +25,12 @@ This github provides getting started guide and other working details for UHF rea
 ### Interfacing Details
 - Pico W and UHF module interfacing
   
-  | Pico W | RFID Module Pin | Function |
+  | Pico W | UHF Module Pin | Function |
   |---|---|---|
-  |GP4 | RX | Serial UART connection |
-  |GP5 | TX  | Serial UART connection |
+  |GP4 (Tx) | UHF_RX | Serial UART connection |
+  |GP5 (Rx) | UHF_TX  | Serial UART connection |
+  |GP26 | EN  | UHF Reader enable pin, LOW to activate and HIGH to deactivate|
 
-  
 - Pico W and Display interfacing
   
   | Pico W | Display Pin | Function |
@@ -73,10 +67,10 @@ This github provides getting started guide and other working details for UHF rea
   |GP1 | 2 | General IO / SPI0 CSn / I2C0 SCL / UART0 RX |
   |GP2 | 4 | General IO / SPI0 SCK / I2C1 SDA |
   |GP3 | 5 | General IO / SPI0 TX / I2C1 SCL |
-  |GP21 | 9 | General IO / I2C0 SCL |
-  |GP20 | 10 | General IO / I2C0 SDA |
+  |GP21 | 27 | General IO / I2C0 SCL |
+  |GP20 | 26 | General IO / I2C0 SDA |
   |GP28| 34 | General IO / ADC2 / SPI1 RX |
-  |GP15| 34 | General IO / SPI1 TX / I2C1 SCL|
+  |GP15| 20 | General IO / SPI1 TX / I2C1 SCL|
 
 
 ### 1. Step to install boot Firmware
