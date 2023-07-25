@@ -3,7 +3,7 @@ Demo code to test UHF for single poll command
 To run the code successfully, add the library file of uhf to pico W 
 -> https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/examples/lib/uhf.py
 '''
-from machine import UART, Pin,SPI,I2C
+from machine import UART, Pin,SPI
 import time
 from uhf import UHF #import uhf library file
 
