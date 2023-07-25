@@ -4,10 +4,9 @@ To run the code successfully, add the library file of uhf to pico W
 -> https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/examples/lib/uhf.py
 '''
 from machine import UART, Pin,SPI,I2C
-import time,utime
+import time
 from uhf import UHF #include uhf library file
 import st7789
-import time
 import vga1_8x16 as font1
 import vga1_16x32 as font
 import vga1_16x16 as font2
