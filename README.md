@@ -48,8 +48,8 @@ This github page provides a getting started guide and other working details for 
 - (1) 1.14” Display
 - (2) UHF module
 - (3) Pico W 
-- (4), - (6) & - (11) programmable button
-- (5) & - (10) GPIOs Breakout with Power Pins
+- (4), (6) & (11) programmable button
+- (5) & (10) GPIOs Breakout with Power Pins
 - (7) Buzzer
 - (8) TF card slot
 - (9) Reset Button
