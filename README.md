@@ -24,14 +24,37 @@ This github page provides a getting started guide and other working details for 
 - Operating voltage of pins 3.3V and board supply 5V
 - Display resolution 240 × 135 pixels
 - ST7789 display driver
-- UHF Module: 
+- UHF Module:
+  - UHF Frequency Range :  EU/UK -> 865.1-867.9 MHz, US-> 902.25-927.75 MHz
+  - Protocols Supported : EPCglobal UHF Class 1 Gen 2 / ISO 18000-6C
+  - Onboard Antenna
+  - Reading Distance: 1-1.5 meters depending tags 
+  - Can identify over 50 tags simultaneously
+  - Communication interface: TTL UART Interface for UHF
+  - Communication baud rate: 115200 bps（default and recommend) - 38400bps
+  - Operation current: 180mA @ 3.5V (26 dBm Output，25°C), 110mA @ 3.5V (18 dBm Output，25°C)
+  - Working humidity < 95% (+ 25 °C)
+  - Heat-dissipating method Air cooling(no need out install cooling fin）
+  - Tags storage capacity: 200pcs tags @ 96 bit EPC
+  - Output power: 18-26 dBm
+  - Output power accuracy: +/- 1dB
+  - Tags RSSI: support
 
 ## Getting Started with UHF Reader for Pico W
 ### Hardware Overview
 #### Pinout
-<img src="https://github.com/sbcshop/ReadPi_RFID_Software/blob/main/images/ReadPi_RFID%20pinout.jpg">
+<img src="https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/images/uhf%20reader%20pico%20pinout.jpg">
 
-- (1) 1.3” Display
+- (1) 1.14” Display
+- (2) UHF module
+- (3) Pico W 
+- (4), - (6) & - (11) programmable button
+- (5) & - (10) GPIOs Breakout with Power Pins
+- (7) Buzzer
+- (8) TF card slot
+- (9) Reset Button
+- (12) Type C
+- (13) Battery Connector
 
 
 #### GPIO Pins Detail
