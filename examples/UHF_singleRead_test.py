@@ -7,8 +7,8 @@ from machine import UART, Pin,SPI,I2C
 import time,utime
 from uhf import UHF #import uhf library file
 
-#UHF enable pin connected at GP4 
-enable_pin = machine.Pin(4, machine.Pin.OUT) # set pin as OUTPUT
+#UHF enable pin connected at GP26 
+enable_pin = machine.Pin(26, machine.Pin.OUT) # set pin as OUTPUT
 enable_pin.value(0) # LOW value enables UHF module, HIGH to disable module
 
 baudrate = 115200 # communication baudrate
