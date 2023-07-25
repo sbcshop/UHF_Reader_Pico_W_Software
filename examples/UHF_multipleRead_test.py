@@ -1,4 +1,8 @@
-#Demo to Read multiple RFID tag using UHF Reader
+'''
+Demo to Several Time polling command of UHF reader
+To run the code successfully, add the library file of uhf to pico W 
+-> https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/examples/lib/uhf.py
+'''
 #Import the uhf library along with some inbuilt libraries.
 from machine import UART,SPI,I2C,Pin
 import time,utime
