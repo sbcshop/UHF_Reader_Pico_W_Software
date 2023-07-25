@@ -7,7 +7,7 @@ from machine import UART, Pin,SPI,I2C
 import time,utime
 from uhf import UHF #include uhf library file
 import st7789
-import time,utime
+import time
 import vga1_8x16 as font1
 import vga1_16x32 as font
 import vga1_16x16 as font2
