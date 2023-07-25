@@ -58,7 +58,7 @@ This github page provides a getting started guide and other working details for 
 
 
 #### GPIO Pins Detail
-<img src="https://github.com/sbcshop/ReadPi_RFID_Software/blob/main/images/READPI%20GPIO%20PINS%20breakout.jpg">
+<img src="">
 
 ### Interfacing Details
 - Pico W and UHF module interfacing
@@ -133,7 +133,7 @@ This github page provides a getting started guide and other working details for 
      
      Now that we've reached this point, you're executing your script through Thonny IDE, so if you unplug Pico, it will stop running. To run your script without using an IDE, simply power up board and it should run your script, go to step 3. Once you have transferred your code to the board, to see your script running, just plug in power either way using micro USB or via Vin, both will work.
 
-### 3. How to move your script on Pico W of Board
+### 3. How to move your script on Pico W of UHF Reader board
    - Click on File -> Save Copy -> select Raspberry Pi Pico , Then save file as main.py
      
       <img src="https://github.com/sbcshop/3.2_Touchsy_Pico_W_Resistive_Software/blob/main/images/transfer_script_pico.gif" />
