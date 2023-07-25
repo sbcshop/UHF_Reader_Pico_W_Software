@@ -1,6 +1,6 @@
 '''
 Example code to demonstrate the working of SD Card -- read and write operation
-To run the code , add the library file of sdcard as sdcard.py 
+To run the code , add the library file of sdcard -> https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/examples/lib/sdcard.py
 '''
 import time, utime
 import random
