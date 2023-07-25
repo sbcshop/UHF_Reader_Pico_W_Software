@@ -2,6 +2,21 @@
 from machine import UART, Pin,SPI,I2C
 import time,utime
 from uhf import UHF #include uhf library file
+import st7789
+import time,utime
+import vga1_8x16 as font1
+import vga1_16x32 as font
+import vga1_16x16 as font2
+
+#configure SPI interfacing for display
+spi = SPI(0, baudrate=40000000, sck=Pin(6), mosi=Pin(7))  #setting the parameters for the SPI communication.
+tft = st7789.ST7789(spi,135,240,reset=Pin(14, Pin.OUT),cs=Pin(13, Pin.OUT),dc=Pin(11, Pin.OUT),
+                    backlight=Pin(12, Pin.OUT),rotation=1)
+
+def displayText(data):
+    tft.init() # initialising the TFT 
+    utime.sleep(0.5)
+    tft.text(font2,data, 5,0,st7789.CYAN)
 
 #UHF enable pin connected at GP4 
 enable_pin = machine.Pin(4, machine.Pin.OUT) # set pin as OUTPUT
@@ -13,5 +28,7 @@ response = uhf.hardware_version() # call method for hardware version check comma
 
 print(response) 
 
-time.sleep(1)
+displayText(response)
+
+time.sleep(2)
 uhf.stop_read()	# call function to send stop operation command 
