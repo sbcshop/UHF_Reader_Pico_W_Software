@@ -58,7 +58,7 @@ This github page provides a getting started guide and other working details for 
 
 
 #### GPIO Pins Detail
-<img src="">
+<img src=" ">
 
 ### Interfacing Details
 - Pico W and UHF module interfacing
