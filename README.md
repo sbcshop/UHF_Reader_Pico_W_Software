@@ -147,12 +147,67 @@ This github page provides a getting started guide and other working details for 
 **NOTE: Don't rename _lib_ files** or and other files, only your main code script should be rename as main.py for standalone execution without Thonny.
 
 
+### Commands and Response of UHF module
+
+| Type | Description |
+|---|---|
+| 0x00 | Command Frame: send from PC/Controller to UHF Module chip |
+| 0x01 | Response Frame: send from UHF Module chip to PC/Controller |
+| 0x02 | Notice Frame: send from UHF Module chip to PC/Controller |  
+
+- Hardware version Check
+  
+  <img src="https://github.com/sbcshop/Ardi_UHF_Shield_Software/blob/main/images/hardware_version_cmd.png" width="573" height="270">
+
+  **Expected Response**
+  
+  <img src="https://github.com/sbcshop/Ardi_UHF_Shield_Software/blob/main/images/HW_response.png" width="573" height="270">
+
+  code snippets(uhf.py)
+  ```
+    # Add here UHF commands in byte array format to configure, 
+    # refer Manual: https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/documents/UHF%20Commands%20Manual.pdf
+    # standard commands for UHF operations, refer command manual for more details. So, you can add more commands for other operation
+    STARTBYTE     ='BB00' # combine Header + Type
+    ENDBYTE       ='7E'
+    HARD_VERSION  ='0300010004'
+    MULTIPLE_READ ='27000322271083'
+    SINGLE_READ   ='22000022'
+    STOP_READ     ='28000028'
+  ```
+  ```
+    baudrate = 115200 # communication baudrate
+    uhf = UHF(baudrate)	# create instance for class UHF
+    response = uhf.hardware_version() # call method for hardware version check command
+    
+    print(response) 
+  ```
+  **Output on Terminal: [hardware version example](https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/examples/UHF_HWversion_test.py)**
+  
+  <img src="https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/images/hardware_version_response.png">
+
+- Similarly for Tag read
+  
+  <img src="https://github.com/sbcshop/Ardi_UHF_Shield_Software/blob/main/images/single_poll_cmd.png">
+
+  Code snippets Tag Read Command (uhf.py):
+  ```
+   # Command Frame Needed: 0XBB,0X00,0X22,0X00,0X00,0X22,0X7E
+   data = self.send_command([STARTBYTE, SINGLE_READ, ENDBYTE])
+  ```
+
+  **Output on Terminal: [UHF read example](https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/examples/UHF_singleRead_test.py)**
+  
+  <img src="https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/images/single_read_response.png">
+
+   You can refer [Manual](https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/documents/UHF%20Commands%20Manual.pdf) for various UHF commands
+  
 ### Example Codes
-   Save whatever example code file you want to try as **main.py** in **Pico W** as shown in above [step 3](), also add related lib files with default name.
+   Save whatever example code file you want to try as **main.py** in **Pico W** as shown in above [step 3](https://github.com/sbcshop/UHF_Reader_Pico_W_Software/tree/main#3-how-to-move-your-script-on-pico-w-of-board), also add related lib files with default name.
    In [example](https://github.com/sbcshop/UHF_Reader_Pico_W_Software/tree/main/examples) folder you will find demo example script code to test onboard components of board like 
    - [Buzzer test](https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/examples/BuzzerDemo.py) : code to test onboard Buzzer
-   - [SD card demo](https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/examples/sdcard_demo.py) : code to test onboard micro SD card interfacing, [sdcard.py](https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/examples/sdcard.py) lib file is required for the code to run successfully.
-   - [UHF_Module Demo]() : testing onboard UHF module, this code will need lib file [uhf.py]()
+   - [SD card demo](https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/examples/sdcard_demo.py) : code to test onboard micro SD card interfacing, [sdcard.py](https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/examples/lib/sdcard.py) lib file is required for the code to run successfully.
+   - [UHF_Module Demo](https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/examples/UHF_singleRead_test.py) : testing onboard UHF module, this code will need lib file [uhf.py](https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/examples/lib/uhf.py)
    
    Using this sample code as a guide, you can modify, build, and share codes!!  
    
@@ -163,6 +218,7 @@ This github page provides a getting started guide and other working details for 
   * [MicroPython getting started for RPi Pico/Pico W](https://docs.micropython.org/en/latest/rp2/quickref.html)
   * [Pico W Getting Started](https://projects.raspberrypi.org/en/projects/get-started-pico-w)
   * [RP2040 Datasheet](https://github.com/sbcshop/HackyPi-Hardware/blob/main/Documents/rp2040-datasheet.pdf)
+  * [UHF Command Manual](https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/documents/UHF%20Commands%20Manual.pdf)
 
 
 ## Related Products
