@@ -1,15 +1,30 @@
 # UHF_Reader_Pico_W_Software
-<img src="https://cdn.shopify.com/s/files/1/1217/2104/files/readpi_1BANNER.jpg?v=1689673444">
+<img src="https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/images/UHF%20Reader%20banner.jpg">
 
-This github provides getting started guide and other working details for UHF reader for Pico W
+This github page provides a getting started guide and other working details for the UHF reader for Pico W. The UHF Reader for Pico W is a rapid multi-tag reading device for efficient and effective inventory management.
 
 ### Features:
-- Powered by Raspberry Pi Pico W microcontroller board 
-
+- UHF Reader for Pico Powered by Pico W 
+- Onboard High-performance UHF RFID reader module
+- 24 hours x 365 days’ work normally
+- 1.14” TFT display for visual interaction
+- Multi-tone Buzzer onboard for Audio alerts
+- Micro USB for programming and Type C for power.
+- Drag-and-drop programming using mass storage over USB
+- Onboard 3 user programmable buttons and reset button
+- SD card slot for storage and data transfer
+- Battery power and charging circuit for portable use
+- Status LED for Power and Battery charging available
+- Multipurpose GPIOs breakout for interfacing external peripherals
+- SWD pins breakout for serial debugging 
+- Compatible with Micropython, circuitpython and Arduino for programming.
 
 ### Specifications:
-- RP2040 microcontroller is dual-core Arm Cortex-M0+ processor, 2MB of onboard flash storage, 264kB of RAM
--
+- RP2040 microcontroller is dual-core Arm Cortex-M0+ processor, 2MB of onboard flash storage, 264kB of RAM with WiFi and BLE support.
+- Operating voltage of pins 3.3V and board supply 5V
+- Display resolution 240 × 135 pixels
+- ST7789 display driver
+- UHF Module: 
 
 ## Getting Started with UHF Reader for Pico W
 ### Hardware Overview
@@ -74,16 +89,16 @@ This github provides getting started guide and other working details for UHF rea
 
 
 ### 1. Step to install boot Firmware
-   - Every ReadPi board will be provided with boot firmware already installed, so you can skip this step and directly go to step 2.
+   - Every UHF reader board will be provided with boot firmware already installed, so you can skip this step and directly go to step 2.
    - If in case you want to install firmware for your board, Push and hold the BOOTSEL button and plug your Pico W into the USB port of your computer. Release the BOOTSEL button after your Pico is connected.
    <img src="https://github.com/sbcshop/ArdiPi_Software/blob/main/images/pico_bootmode.gif">
    
    - It will mount as a Mass Storage Device called RPI-RP2.
-   - Drag and drop the MicroPython UF2 - [firmware](https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/uhfreader_picow_firmware.uf2) file provided in this github onto the RPI-RP2 volume. Your Pico will reboot. You are now running MicroPython on Pico W of UHF Reader.
+   - Drag and drop the MicroPython UF2 - [Boot firmware](https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/uhfreader_picow_firmware.uf2) file provided in this github onto the RPI-RP2 volume. Your Pico will reboot. You are now running MicroPython on Pico W of UHF Reader.
 
 ### 2. Onboard LED Blink 
    - Download **Thonny IDE** from [Download link](https://thonny.org/) as per your OS and install it.
-   - Once done start **Thonny IDE application**, Connect ReadPi to laptop/PC.
+   - Once done start **Thonny IDE application**, Connect UHF Reader board to laptop/PC.
    - Select device at the bottom right with a suitable COM port, as shown in the below figure. You might get a different COM port.
      
       <img src= "https://github.com/sbcshop/EnkPi_2.9_Software/blob/main/images/img1.jpg" />
@@ -93,7 +108,7 @@ This github provides getting started guide and other working details for UHF rea
      
       <img src= "https://github.com/sbcshop/EnkPi_2.9_Software/blob/main/images/img3.jpg" />
      
-     Now that we've reached this point, you're executing your script through Thonny IDE, so if you unplug Pico, it will stop running. To run your script without using an IDE, simply power up ArdiPi and it should run your script, go to step 3. Once you have transferred your code to the board, to see your script running, just plug in power either way using micro USB or via Vin, both will work.
+     Now that we've reached this point, you're executing your script through Thonny IDE, so if you unplug Pico, it will stop running. To run your script without using an IDE, simply power up board and it should run your script, go to step 3. Once you have transferred your code to the board, to see your script running, just plug in power either way using micro USB or via Vin, both will work.
 
 ### 3. How to move your script on Pico W of Board
    - Click on File -> Save Copy -> select Raspberry Pi Pico , Then save file as main.py
@@ -111,7 +126,7 @@ This github provides getting started guide and other working details for UHF rea
 
 ### Example Codes
    Save whatever example code file you want to try as **main.py** in **Pico W** as shown in above [step 3](), also add related lib files with default name.
-   In [example](https://github.com/sbcshop/UHF_Reader_Pico_W_Software/tree/main/examples) folder you will find demo example script code to test onboard components of ReadPi like 
+   In [example](https://github.com/sbcshop/UHF_Reader_Pico_W_Software/tree/main/examples) folder you will find demo example script code to test onboard components of board like 
    - [Buzzer test](https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/examples/BuzzerDemo.py) : code to test onboard Buzzer
    - [SD card demo](https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/examples/sdcard_demo.py) : code to test onboard micro SD card interfacing, [sdcard.py](https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/examples/sdcard.py) lib file is required for the code to run successfully.
    - [UHF_Module Demo]() : testing onboard UHF module, this code will need lib file [uhf.py]()
