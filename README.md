@@ -89,7 +89,7 @@ This github provides getting started guide and other working details for UHF rea
       <img src= "https://github.com/sbcshop/EnkPi_2.9_Software/blob/main/images/img1.jpg" />
       <img src= "https://github.com/sbcshop/EnkPi_2.9_Software/blob/main/images/img2.jpg" />
       
-   - Write simple onboard blink Python code or [Download Led blink code](https://github.com/sbcshop/ReadPi_RFID_Software/blob/main/examples/onboard_ledBlink.py), then click on the green run button to make your script run on board.
+   - Write simple onboard blink Python code or [Download Led blink code](https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/examples/onboard_ledBlink.py), then click on the green run button to make your script run on board.
      
       <img src= "https://github.com/sbcshop/EnkPi_2.9_Software/blob/main/images/img3.jpg" />
      
@@ -113,8 +113,8 @@ This github provides getting started guide and other working details for UHF rea
    Save whatever example code file you want to try as **main.py** in **Pico W** as shown in above [step 3](), also add related lib files with default name.
    In [example](https://github.com/sbcshop/UHF_Reader_Pico_W_Software/tree/main/examples) folder you will find demo example script code to test onboard components of ReadPi like 
    - [Buzzer test](https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/examples/BuzzerDemo.py) : code to test onboard Buzzer
-   - [SD card demo]() : code to test onboard micro SD card interfacing, [sdcard.py]() lib file is required for the code to run successfully.
-   - [UHF_Module Demo]() : testing onboard RFID module , buzzer and display unit of shield. 
+   - [SD card demo](https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/examples/sdcard_demo.py) : code to test onboard micro SD card interfacing, [sdcard.py](https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/examples/sdcard.py) lib file is required for the code to run successfully.
+   - [UHF_Module Demo]() : testing onboard UHF module, this code will need lib file [uhf.py]()
    
    Using this sample code as a guide, you can modify, build, and share codes!!  
    
@@ -128,9 +128,10 @@ This github provides getting started guide and other working details for UHF rea
 
 
 ## Related Products
-   * [ReadPi NFC](https://shop.sb-components.co.uk/products/readpi-an-rfid-nfc-reader-powered-with-raspberry-pi-pico-w?variant=40478483087443) - ReadPi with 13.56MHz NFC reader/writer powered by Raspberry Pi Pico W
-   * [Raspberry Pi Pico RFID expansion](https://shop.sb-components.co.uk/products/raspberry-pi-pico-rfid-expansion) - RFID expansion board with support to incorporate Pico/Pico W 
-   * [RFID_Breakout](https://shop.sb-components.co.uk/products/rfid-breakout?_pos=5&_sid=fac219786&_ss=r) - RFID breakout for standalone testing and freedom to choose microcontroller as per requirement.
+   * [UHF Reader for ESP32](https://shop.sb-components.co.uk/products/readpi-an-rfid-nfc-reader-powered-with-raspberry-pi-pico-w?variant=40478483087443) - UHF Reader powered by ESP32 S3 WROOM - 1
+   * [Ardi UHF Shield](https://shop.sb-components.co.uk/products/ardi-uhf-shield-for-arduino-uno?variant=40791294836819) - UHF based shield with Oled display and Buzzer onboard
+   * [UHF Lite HAT](https://shop.sb-components.co.uk/products/uhf-rfid-lite-hat) - Raspberry Pi Version
+   * [UHF Lite Expansion for Raspberry Pi Pico](https://shop.sb-components.co.uk/products/uhf-rfid-for-pico?_pos=5&_sid=75312e089&_ss=r): UHF Lite Expansion to use with Pico/ Pico W
 
 ## Product License
 
