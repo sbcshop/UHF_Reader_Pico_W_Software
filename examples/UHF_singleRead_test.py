@@ -1,7 +1,7 @@
 #Demo code to test UHF for single poll command
 from machine import UART, Pin,SPI,I2C
 import time,utime
-from uhf import UHF
+from uhf import UHF #import uhf library file
 
 #UHF enable pin connected at GP4 
 enable_pin = machine.Pin(4, machine.Pin.OUT) # set pin as OUTPUT
