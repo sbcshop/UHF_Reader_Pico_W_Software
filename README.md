@@ -56,10 +56,6 @@ This github page provides a getting started guide and other working details for 
 - (12) Type C
 - (13) Battery Connector
 
-
-#### GPIO Pins Detail
-<img src=" ">
-
 ### Interfacing Details
 - Pico W and UHF module interfacing
   
