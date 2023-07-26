@@ -98,18 +98,27 @@ This github page provides a getting started guide and other working details for 
   |GP22 | Buzzer | Buzzer positive |
   |GP25 | LED | OnBoard LED pin of Pico W  |
  
-- Breakout GPIOs
+ - GPIOs _Breakout 1_
+   
+   | Pico W |Physical Pin | Multi-Function |
+   |---|---|---|
+   | 5V | - | Positive 5V supply |
+   |GP0 | 1  | General IO / SPI0 RX / I2C0 SDA / UART0 TX |
+   |GP1 | 2 | General IO / SPI0 CSn / I2C0 SCL / UART0 RX |
+   |GP2 | 4 | General IO / SPI0 SCK / I2C1 SDA |
+   |GP3 | 5 | General IO / SPI0 TX / I2C1 SCL |
+   |GND | - | Supply ground pin |
+   
+- GPIOs _Breakout 2_
+  
   | Pico W |Physical Pin | Multi-Function |
   |---|---|---|
-  |GP0 | 1  | General IO / SPI0 RX / I2C0 SDA / UART0 TX |
-  |GP1 | 2 | General IO / SPI0 CSn / I2C0 SCL / UART0 RX |
-  |GP2 | 4 | General IO / SPI0 SCK / I2C1 SDA |
-  |GP3 | 5 | General IO / SPI0 TX / I2C1 SCL |
+  | 3.3V | - | Positive 3.3V supply |
   |GP21 | 27 | General IO / I2C0 SCL |
   |GP20 | 26 | General IO / I2C0 SDA |
   |GP28| 34 | General IO / ADC2 / SPI1 RX |
-  |GP15| 20 | General IO / SPI1 TX / I2C1 SCL|
-
+  |GP15| 20 | General IO / SPI1 TX / I2C1 SCL|  
+  |GND | - | Supply ground pin |
 
 ### 1. Step to install boot Firmware
    - Every UHF reader board will be provided with boot firmware already installed, so you can skip this step and directly go to step 2.
