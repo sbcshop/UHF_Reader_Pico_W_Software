@@ -227,7 +227,7 @@ This github page provides a getting started guide and other working details for 
 
 
 ## Related Products
-   * [UHF Reader for ESP32](https://shop.sb-components.co.uk/products/readpi-an-rfid-nfc-reader-powered-with-raspberry-pi-pico-w?variant=40478483087443) - UHF Reader powered by ESP32 S3 WROOM - 1
+   * [UHF Reader for ESP32](https://shop.sb-components.co.uk/products/uhf-reader-based-on-pico-w-esp32?variant=40586828480595) - UHF Reader powered by ESP32 S3 WROOM - 1
    * [Ardi UHF Shield](https://shop.sb-components.co.uk/products/ardi-uhf-shield-for-arduino-uno?variant=40791294836819) - UHF based shield with Oled display and Buzzer onboard
    * [UHF Lite HAT](https://shop.sb-components.co.uk/products/uhf-rfid-lite-hat) - Raspberry Pi Version
    * [UHF Lite Expansion for Raspberry Pi Pico](https://shop.sb-components.co.uk/products/uhf-rfid-for-pico?_pos=5&_sid=75312e089&_ss=r): UHF Lite Expansion to use with Pico/ Pico W
