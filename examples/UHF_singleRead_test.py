@@ -13,6 +13,13 @@ enable_pin.value(0) # LOW value enables UHF module, HIGH to disable module
 
 baudrate = 115200 # communication baudrate
 uhf = UHF(baudrate)	# create instance for class UHF
+
+'''
+Uncomment corresponding section to increase reading range, you will have to set the region as per requirment.
+'''
+#uhf.setRegion_EU() 
+#uhf.setRegion_US()
+
 response = uhf.single_read() # call method for single poll command
 
 print(response)
