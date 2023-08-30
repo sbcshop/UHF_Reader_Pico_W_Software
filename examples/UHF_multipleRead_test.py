@@ -14,6 +14,13 @@ enable_pin.value(0) # Here LOW enables UHF module, HIGH disable
 baudrate = 115200 # communication baudrate between Pico W and UHF module
 
 uhf = UHF(baudrate)    
+
+'''
+Uncomment corresponding section to increase reading range, you will have to set the region as per requirment.
+'''
+#uhf.setRegion_EU() 
+#uhf.setRegion_US()
+
 uhf.multiple_read() # Calling Method to initialise the multiple read by sending related UHF command 
 try:
     while 1:
