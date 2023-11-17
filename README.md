@@ -207,7 +207,7 @@ This github page provides a getting started guide and other working details for 
 
    You can refer [Manual*](https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/documents/UHF%20Commands%20Manual.pdf) for various UHF commands
 
-  ***Note:** Only Read operations of Manual supported with this board.
+  ***Note: Only Read operations of Manual supported with this board.**
   
 ### Example Codes
    Save whatever example code file you want to try as **main.py** in **Pico W** as shown in above [step 3](https://github.com/sbcshop/UHF_Reader_Pico_W_Software/tree/main#3-how-to-move-your-script-on-pico-w-of-board), also add related lib files with default name.
