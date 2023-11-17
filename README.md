@@ -1,5 +1,5 @@
 # UHF_Reader_Pico_W_Software
-<img src="https://cdn.shopify.com/s/files/1/1217/2104/files/DiscriptivebannerUHFReader_e60e9388-d82b-4252-b0c7-54cb48fd2b04.jpg?v=1690438714">
+<img src="https://cdn.shopify.com/s/files/1/1217/2104/files/DiscriptivebannerUHFReader_e60eEDITBANNER9388-d82b-4252-b0c7-54cb48fd2b04.jpg?v=1700219860">
 
 This github page provides a getting started guide and other working details for the UHF reader for Pico W. The UHF Reader for Pico W is a rapid multi-tag reading device for efficient and effective inventory management.
 
@@ -205,7 +205,9 @@ This github page provides a getting started guide and other working details for 
   
   <img src="https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/images/single_read_response.png">
 
-   You can refer [Manual](https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/documents/UHF%20Commands%20Manual.pdf) for various UHF commands
+   You can refer [Manual*](https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/documents/UHF%20Commands%20Manual.pdf) for various UHF commands
+
+  ***Note:** Only Read operations of Manual supported with this board.
   
 ### Example Codes
    Save whatever example code file you want to try as **main.py** in **Pico W** as shown in above [step 3](https://github.com/sbcshop/UHF_Reader_Pico_W_Software/tree/main#3-how-to-move-your-script-on-pico-w-of-board), also add related lib files with default name.
