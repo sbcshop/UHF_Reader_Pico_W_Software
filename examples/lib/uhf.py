@@ -74,6 +74,25 @@ class UHF():
 
 
     
+    def Kill_card(self):
+        fig = '6500040000FFFF'   
+        dat = self.calculation(fig)
+        dat1 = STARTBYTE+fig+dat+ENDBYTE
+        #print("dat1 = ",dat1)
+        data = self.send_command(dat1)
+        time.sleep(0.2)
+        rec_data = self.serial.read(24)
+        s = []
+        if rec_data is not None:
+                a = ['{:02x}'.format(x) for x in rec_data]
+                print("kill card = ",a)
+                
+                #if "".join(a) == 'bb01ff0001090a7e':
+                #     return 'No card is there'
+                
+                #else:
+                #    return "".join(a)[40:70]
+                
     ####################################################################
     def Set_select_pera(self,tag_uid):          
         #fig = '0C00130'+Memory_bank+'000000206000'+ tag_uid
@@ -126,7 +145,7 @@ class UHF():
         fig = '490019000000000'+memory_bank+'00000008'+ data_w      
         dat = self.calculation(fig)
         dat1 = STARTBYTE+fig+dat+ENDBYTE
-        print('write1111 = ',dat1)
+        #print('write = ',dat1)
         data = self.send_command(dat1)
         time.sleep(0.2)
         rec_data = self.serial.read(23)
@@ -140,8 +159,9 @@ class UHF():
                 elif "".join(a) == 'bb01ff000117187e':   
                      return 'Command error'#'Data length should me should be integer multiple words'
                     
-                else:
-                     return 'Card sucessfull write'
+                elif a[2] == '49':
+                    return 'Card sucessfull write'
+
     ################################################################################
 
 
@@ -195,3 +215,4 @@ class UHF():
                 return None        
             return ['{:02x}'.format(x) for x in rec_data]
             
+
