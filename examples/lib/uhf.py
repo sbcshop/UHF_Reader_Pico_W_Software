@@ -10,7 +10,7 @@ https://github.com/sbcshop/UHF_Reader_Pico_W_Software/blob/main/documents/UHF%20
 So, you can add more commands for other operation
 '''
 
-STARTBYTE     ='BB00'	# combine Header + Type
+STARTBYTE     ='BB00' # combine Header + Type
 ENDBYTE       ='7E'
 
 '''2.1 Get the reader module information'''
@@ -43,11 +43,107 @@ class UHF():
             if rec_data[0] != 0xbb or rec_data[23] != 0x7e or rec_data[1] != 0x02:
                 return None        
             return ['{:02x}'.format(x) for x in rec_data]
+    
+    #####################################################
+    def calculate_checksum(self,data):
+        checksum = 0
+        for byte in data:
+            checksum += byte
+        checksum_1 = (checksum) % 256
+        return checksum
+
+    def calculation(self,Data):
+        bin_data1 = binascii.unhexlify(Data)
+        chk_1 = (hex(self.calculate_checksum(bin_data1)))
+        #print("checksum",chk_1)
+        if len(chk_1) == 5:
+            return str(chk_1[3:])
             
+        elif len(chk_1) == 4:
+            return str(chk_1[2:])
+        
+        else:
+            return '0'+ str(chk_1[3:])
+    ######################################################
+
     def send_command(self, data):
         Data = ''.join(data)
+        #print(Data)
         bin_data = binascii.unhexlify(Data)
         response = self.serial.write(bin_data)
+
+
+    
+    ####################################################################
+    def Set_select_pera(self,tag_uid):          
+        #fig = '0C00130'+Memory_bank+'000000206000'+ tag_uid
+        fig = '0C001300000000206000'+ tag_uid
+        dat = self.calculation(fig)
+        dat1 = STARTBYTE+fig+dat+ENDBYTE
+        #print('card select = ',dat1)
+        data = self.send_command(dat1)
+        time.sleep(0.2)
+        rec_data = self.serial.read(16)
+        s = []
+        if rec_data is not None:
+                a = ['{:02x}'.format(x) for x in rec_data]
+                #print('select response = ',a)
+                if "".join(a) == 'bb010c0001000e7e':   
+                     return 'Select sucessfull'
+                else:
+                    return 'invalid'
+                
+    
+    def Read_tag_data(self,memory_bank):
+        fig = '390009000000000'+memory_bank+'00000008'   
+        dat = self.calculation(fig)
+        dat1 = STARTBYTE+fig+dat+ENDBYTE
+        #print("dat1 = ",dat1)
+        
+        data = self.send_command(dat1)
+        time.sleep(0.2)
+        rec_data = self.serial.read(40)
+        s = []
+        if rec_data is not None:
+                a = ['{:02x}'.format(x) for x in rec_data]
+                print(a)
+                if "".join(a) == 'bb01ff0001090a7e':
+                     return 'No card is there'
+                    
+                elif "".join(a) != 'bb01ff0001090a7e':
+                    if memory_bank == '2':
+                        return "".join(a)[40:72]
+                        
+                    elif memory_bank == '3':
+                        return "".join(a)[40:70]
+                    
+                    elif memory_bank == '1':
+                        return "".join(a)[48:72]
+                    
+
+
+    def Write_tag_data(self,data_w,memory_bank):  
+        fig = '490019000000000'+memory_bank+'00000008'+ data_w      
+        dat = self.calculation(fig)
+        dat1 = STARTBYTE+fig+dat+ENDBYTE
+        print('write1111 = ',dat1)
+        data = self.send_command(dat1)
+        time.sleep(0.2)
+        rec_data = self.serial.read(23)
+        s = []
+        if rec_data is not None:
+                a = ['{:02x}'.format(x) for x in rec_data]
+                print('write data = ',a)
+                if "".join(a) == 'bb01ff000110117e':  
+                     return 'Write card failed,No tag response'
+                    
+                elif "".join(a) == 'bb01ff000117187e':   
+                     return 'Command error'#'Data length should me should be integer multiple words'
+                    
+                else:
+                     return 'Card sucessfull write'
+    ################################################################################
+
 
     def hardware_version(self):
         self.send_command([STARTBYTE,HARD_VERSION,ENDBYTE])
@@ -64,6 +160,7 @@ class UHF():
                    s.append(str(ds[i],'latin-1'))
             return "".join(s)
 
+
     def multiple_read(self):
         data = self.send_command([STARTBYTE, MULTIPLE_READ, ENDBYTE])
 
@@ -77,16 +174,16 @@ class UHF():
         #print(rec_data)    
     
     def setRegion_US(self):
-        data = self.send_command([STARTBYTE, SET_REGION_US, ENDBYTE])
+        data = self.send_command([STARTBYTE, write_tag, ENDBYTE])
         time.sleep(0.5)
         rec_data = self.serial.read(24)
         #print(rec_data)
-        
+    
     def getTransmit_Power(self):
         data = self.send_command([STARTBYTE, GET_TRANSMIT_PWR, ENDBYTE])
         time.sleep(0.5)
         rec_data = self.serial.read(24)
-        print(rec_data)
+        return rec_data
         
     def single_read(self):
         data = self.send_command([STARTBYTE, SINGLE_READ, ENDBYTE])
