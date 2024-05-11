@@ -194,7 +194,7 @@ class UHF():
         #print(rec_data)    
     
     def setRegion_US(self):
-        data = self.send_command([STARTBYTE, write_tag, ENDBYTE])
+        data = self.send_command([STARTBYTE, SET_REGION_US, ENDBYTE])
         time.sleep(0.5)
         rec_data = self.serial.read(24)
         #print(rec_data)
