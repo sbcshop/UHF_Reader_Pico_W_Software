@@ -43,7 +43,7 @@ try:
             print('EPC = ',"".join(rev[8:20])) # Extracting the EPC value from 8th bit to 20th bit & print it
             print('RSSI(dBm) = ',rev[5])       # Extracting the RSSI value stored at 5th bit & print it.
             rssi_dec = hex_to_signed_decimal(rev[5], 8)
-            print("RSSI(decimal) = ', rssi_dec)
+            print("RSSI(decimal) = ", rssi_dec)
             print('CRC = ',rev[20],rev[21])    # Extracting the CRC values stored at 20th & 21st bit & print the same
             print('PC = ',rev[6],rev[7])	   # Extracting the PC  stored at 6th & 7th 
             print("\n")
