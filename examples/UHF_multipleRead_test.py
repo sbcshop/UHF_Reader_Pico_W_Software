@@ -22,6 +22,19 @@ you will have to set the region as per requirment
 #uhf.setRegion_EU() 
 #uhf.setRegion_US()
 
+def hex_to_signed_decimal(hex_number, bit_width):
+    # Convert the hexadecimal number to a decimal integer
+    decimal_number = int(hex_number, 16)
+    
+    # Calculate the maximum value for a signed integer of the given bit width
+    max_value = 2 ** (bit_width - 1)
+    
+    # If the decimal number is greater than or equal to max_value, it is negative in two's complement
+    if decimal_number >= max_value:
+        decimal_number -= 2 ** bit_width
+
+    return decimal_number
+    
 uhf.multiple_read() # Calling Method to initialise the multiple read by sending related UHF command 
 try:
     while 1:
@@ -29,6 +42,8 @@ try:
         if rev is not None:
             print('EPC = ',"".join(rev[8:20])) # Extracting the EPC value from 8th bit to 20th bit & print it
             print('RSSI(dBm) = ',rev[5])       # Extracting the RSSI value stored at 5th bit & print it.
+            rssi_dec = hex_to_signed_decimal(rev[5], 8)
+            print("RSSI(decimal) = ', rssi_dec)
             print('CRC = ',rev[20],rev[21])    # Extracting the CRC values stored at 20th & 21st bit & print the same
             print('PC = ',rev[6],rev[7])	   # Extracting the PC  stored at 6th & 7th 
             print("\n")
