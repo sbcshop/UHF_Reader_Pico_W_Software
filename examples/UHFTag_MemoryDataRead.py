@@ -23,10 +23,6 @@ Memory Bank
 
 Memory_bank = '3' # Change to read corresponding Memory 
 
-#Select the tag EPC id for read data
-response = uhf.Set_select_pera('80464500e280101010121100') # provide the EPC of the tag, which you want to read
-print(response)
-
 #Tag data read
 response = uhf.Read_tag_data(Memory_bank)
 print(response)
