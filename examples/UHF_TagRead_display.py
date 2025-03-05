@@ -19,12 +19,10 @@ uhf = UHF(baudrate)
 
 '''
 Uncomment corresponding section to increase reading range,
-you will have to set the region as per requirment
+you will have to set the region as per requirment. Need to execute only once. 
 '''
 #uhf.setRegion_EU() 
-uhf.setRegion_US()
-
-uhf.multiple_read() # Calling Method to initialise the multiple read by sending related UHF command
+#uhf.setRegion_US()
 
 #configure SPI interfacing for display
 spi = SPI(0, baudrate=40000000, sck=Pin(6), mosi=Pin(7))  #setting the parameters for the SPI communication.
